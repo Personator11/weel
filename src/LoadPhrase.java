@@ -8,9 +8,7 @@ public class LoadPhrase {
     public String getGuessed(){
         return guessedString;
     }
-    public addGuessed(String guess){
-        guessedString += guess;
-    }
+
     public LoadPhrase() {
         phrase = createBoard();
     }
@@ -21,6 +19,7 @@ public class LoadPhrase {
 
     public String createBoard() //creates board
     {
+        guessedString = "";
         String tempPhrase = "";
         solvedPhrase = "";
         int numOfLines = 0;
@@ -105,6 +104,19 @@ public class LoadPhrase {
     public String getPhrase(){
         return phrase;
     }
+    public String getGuessedString() {
+        return guessedString;
+    }
+    public void addGuessed(String guess){
+        guessedString += guess;
+    }
+    public boolean ifGuessed(String guess){
+        if(guessedString.contains(guess)){
+            return true;
+        } else{
+            return false;
+        }
+    } //returns true if current guess has already been used
 }
 
 

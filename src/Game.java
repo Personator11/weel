@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Game {
@@ -30,6 +31,21 @@ public class Game {
             System.out.println(loadPhrase.getSolvedPhrase());
             System.out.println("Guess or solve");
             String response = sc.nextLine().toLowerCase();
+            boolean isGuessed = true;
+            while(isGuessed){
+                if((response.length() == 1)){
+                    isGuessed = loadPhrase.ifGuessed(response);
+                    if(isGuessed){
+                        System.out.println("Already guessed, try again");
+                        response = sc.nextLine().toLowerCase();
+                    } else{
+                        loadPhrase.addGuessed(response);
+                    }
+                } else{
+                    isGuessed = false;
+                }
+
+            }
             if (response.length() == 1){ //guessing
                 int guessValue = ((int)(Math.random() * 6 + 1)) * 100;
                 int correct = loadPhrase.checkGuess(response);
@@ -42,16 +58,14 @@ public class Game {
                 }
             }
             else {
-                if (response.equals(loadPhrase.getPhrase().toLowerCase())){
+                if(response.equals(loadPhrase.getPhrase().toLowerCase())){
                     loadPhrase.resetBoard();
                     player.incScore(20000);
                     System.out.println("Play another turn?");
-                        if (sc.nextLine().substring(0,1).toLowerCase().equals("y"))
-                            turn(player);
-                    run = false;
+                    if (sc.nextLine().substring(0,1).toLowerCase().equals("y"))
+                        turn(player);
                 }
-                else
-                    run = false;
+                run = false;
             }
         }
     }
