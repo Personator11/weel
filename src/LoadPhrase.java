@@ -4,11 +4,11 @@ public class LoadPhrase {
     private String phrase = "";
     private String solvedPhrase = "";
     private String guessedString = "";
-    public LoadPhrase() {
-        phrase = createBoard();
+    public LoadPhrase() { //gets a correct answer loaded
+        phrase = createBoard(); 
     }
 
-    public void resetBoard(){
+    public void resetBoard(){ //gets a correct answer loaded
         phrase = createBoard();
     }
 
@@ -60,7 +60,7 @@ public class LoadPhrase {
         return tempPhrase;
     }
 
-    public int checkGuess(String guess){
+    public int checkGuess(String guess){ //checks to see if solvedphrase is equal to the phras (correct answer)
         int numCorrect = 0;
         if (solvedPhrase.contains(guess))
             return 0;
@@ -76,7 +76,7 @@ public class LoadPhrase {
         return numCorrect;
     }
 
-    private String everyOther(String in){
+    private String everyOther(String in){ //removes spaces between each letter
         String str = "";
         for (int i = 0; i < in.length(); i++){
             if (i % 2 == 0)
@@ -85,7 +85,7 @@ public class LoadPhrase {
         return str;
     }
 
-    private String expandString(String in){
+    private String expandString(String in){ //add spaces between each letter
         String str = "";
         for (int i = 0; i < in.length(); i++){
             str += in.substring(i,i+1) + " ";
@@ -93,16 +93,16 @@ public class LoadPhrase {
         return str.substring(0,str.length() - 1);
     }
 
-    public String getSolvedPhrase(){
+    public String getSolvedPhrase(){ //accessor
         return solvedPhrase;
     }
-    public String getPhrase(){
+    public String getPhrase(){ //accessor
         return phrase;
     }
-    public void addGuessed(String guess){
+    public void addGuessed(String guess){ //mutator
         guessedString += guess;
     }
-    public boolean ifGuessed(String guess){
+    public boolean ifGuessed(String guess){ //checks if letter was repeated
         if(guessedString.contains(guess)){
             return true;
         } else{
