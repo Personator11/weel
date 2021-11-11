@@ -44,7 +44,6 @@ public class Game {
                 } else{
                     isGuessed = false;
                 }
-
             }
             if (response.length() == 1){ //guessing
                 int guessValue = ((int)(Math.random() * 6 + 1)) * 100;
@@ -68,9 +67,6 @@ public class Game {
                 run = false;
             }
         }
-    }
-    private void printBoard(){
-        System.out.println(loadPhrase.getSolvedPhrase());
     }
     private void printScore(Player pl){
         System.out.print(pl.getName() + "'s score: " + pl.getScore() + "   ");

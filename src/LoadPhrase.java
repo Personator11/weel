@@ -4,11 +4,6 @@ public class LoadPhrase {
     private String phrase = "";
     private String solvedPhrase = "";
     private String guessedString = "";
-    private int wheelSpinValue;
-    public String getGuessed(){
-        return guessedString;
-    }
-
     public LoadPhrase() {
         phrase = createBoard();
     }
@@ -103,9 +98,6 @@ public class LoadPhrase {
     }
     public String getPhrase(){
         return phrase;
-    }
-    public String getGuessedString() {
-        return guessedString;
     }
     public void addGuessed(String guess){
         guessedString += guess;
