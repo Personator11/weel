@@ -22,7 +22,7 @@ public class Game {
         }
     }
 
-    public void turn(Player player){ //a method for one turn in the game
+    private void turn(Player player){ //a method for one turn in the game
         System.out.println(loadPhrase.getPhrase());
         printScores();
         System.out.println(player.getName() + "'s turn");
